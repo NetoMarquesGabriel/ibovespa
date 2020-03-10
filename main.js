@@ -4,7 +4,7 @@ var fs = require('fs');
 var twit = new twitter(config.twitter);
 var moment = require('moment');
 
-var intervalLength = 300000;
+var intervalLength = config.normalTweetInterval;
 var saveData = {since_id: 0, lastNormalTweet: 0, lastValue: 0, last_id: '0'};
 var currentState = 1;
 
@@ -27,6 +27,9 @@ function checkIbovespaValue() {
                 var data = new Date();
                 var hora    = data.getHours();          // 0-23
                 var min     = data.getMinutes();        // 0-59
+                if (min < 10) {
+                    min = '0' + min.toString();
+                }
                    if (body.results.stocks.IBOVESPA.points > saveData.lastValue) {
                     response.status = 'iBovespa subiu :) - ' + body.results.stocks.IBOVESPA.points + ' pontos às ' + hora + ':' + min + '. Variação: ' + body.results.stocks.IBOVESPA.variation + '%.';
                     console.log(response.status);
@@ -37,7 +40,7 @@ function checkIbovespaValue() {
                     console.log('try to post');
                     console.log('lastValue -> ' + body.results.stocks.IBOVESPA.points);
                     saveData.lastValue = body.results.stocks.IBOVESPA.points;
-                    doTweet(response);
+                    // doTweet(response);
                } else {
                    console.log('no changes!');
                }

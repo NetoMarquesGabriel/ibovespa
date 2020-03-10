@@ -7,7 +7,7 @@ config.twitter = {
     access_token_secret: 'access_token_secret'
 }
 config.keyAcessHgBrasil = 'keyAcessHgBrasil';
-config.normalTweetInterval = 7200000;
+config.normalTweetInterval = 420000;
 
 
 module.exports = config;

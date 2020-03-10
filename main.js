@@ -40,7 +40,7 @@ function checkIbovespaValue() {
                     console.log('try to post');
                     console.log('lastValue -> ' + body.results.stocks.IBOVESPA.points);
                     saveData.lastValue = body.results.stocks.IBOVESPA.points;
-                    // doTweet(response);
+                    doTweet(response);
                } else {
                    console.log('no changes!');
                }

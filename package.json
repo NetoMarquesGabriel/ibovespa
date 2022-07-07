@@ -4,7 +4,7 @@
   "description": "A twitter robo--I mean a cat friend of Pepito that wishes them well.",
   "main": "main.js",
   "dependencies": {
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "request": "^2.88.2",
     "twitter": "git://github.com/satsukitv/node-twitter.git"
   },
